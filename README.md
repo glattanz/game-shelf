@@ -28,3 +28,39 @@ A personal game library to track your gaming journey — what you've played, wha
 - [ ] Achievements / Badges system
 - [ ] Charts by genre, platform and year
 - [ ] Wishlist with deal alerts
+
+## Database Migrations Structure
+
+This project follows the same migration strategy:
+
+- `Database/Migrations/ApplyDbMigrations.ps1`: migration runner script.
+- `Database/Migrations/NextRelease/migrations.json`: ordered list of SQL scripts for the next release.
+- `Database/Migrations/NextRelease/release-manual-tasks.txt`: release checklist.
+- `Database/SQL/...`: SQL scripts referenced by `migrations.json`.
+
+## Running Locally
+
+### Backend
+
+```powershell
+cd Backend/GameShelf.Server
+dotnet restore
+dotnet run
+```
+
+### Frontend
+
+```powershell
+cd Frontend
+npm install
+npm start
+```
+
+## Migrations Workflow
+
+1. Create SQL scripts in `Database/SQL/...`.
+2. Add script paths to `Database/Migrations/NextRelease/migrations.json` in execution order.
+3. Run `Database/Migrations/ApplyDbMigrations.ps1` against the target environment.
+4. Validate manual release steps in `release-manual-tasks.txt`.
+
+If `migrations.json` is empty, no scripts will be applied.
