@@ -1,0 +1,20 @@
+# .NET
+bin/
+obj/
+*.user
+*.suo
+.vs/
+appsettings.Development.json
+
+# Angular
+frontend/game-shelf-app/node_modules/
+frontend/game-shelf-app/dist/
+frontend/game-shelf-app/.angular/
+
+# Environment
+.env
+*.env.local
+
+# OS
+.DS_Store
+Thumbs.db
